@@ -23,8 +23,15 @@ var swagger_model_json = sequelize_swagger(sequelize);
 ```
 
 
-this will return a swagger-compliant json representation of your sequalize models. (it will look like [their example](https://github.com/wordnik/swagger-node-express/blob/master/Apps/petstore/models.js))
+this will return a swagger-compliant json representation of your sequalize models. (it will look like [their example](https://github.com/wordnik/swagger-node-express/blob/master/Apps/petstore/models.js)).
 
+Then, if you are using something like [swagger-node-express](https://github.com/wordnik/swagger-node-express),
+
+```js
+swagger.addModels(swagger_model_json);
+```
+
+and that's it.
 
 installation
 --
