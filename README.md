@@ -30,6 +30,7 @@ installation
 --
 
 Install with [npm](https://npmjs.org/package/sequelize-swagger)
+
 `npm install sequelize-swagger`
 
 notes
