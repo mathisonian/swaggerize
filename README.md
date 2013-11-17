@@ -29,6 +29,9 @@ this will return a swagger-compliant json representation of your sequalize model
 installation
 --
 
+Install with [npm](https://npmjs.org/package/sequelize-swagger)
+`npm install sequelize-swagger`
+
 notes
 --
 
