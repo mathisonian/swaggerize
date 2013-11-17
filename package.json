@@ -14,5 +14,21 @@
   "optionalDependencies": {},
   "engines": {
     "node": "*"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/mathisonian/sequelize-swagger/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sequelize",
+    "sequelizejs",
+    "swagger",
+    "swagger-node-express",
+    "orm",
+    "api",
+    "documentation"
+  ],
+  "license": "MIT"
 }
