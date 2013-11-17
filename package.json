@@ -2,9 +2,11 @@
   "author": "Matthew Conlen",
   "name": "sequelize-swagger",
   "description": "Generates Swagger model definitions from a sequelize object",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "homepage": "https://github.com/mathisonian/sequelize-swagger",
   "repository": {
-    "url": "https://github.com/mathisonian/sequelize-swagger"
+    "url": "git://github.com/mathisonian/sequelize-swagger.git",
+    "type": "git"
   },
   "main": "./index",
   "dependencies": {
