@@ -1,11 +1,11 @@
 {
   "author": "Matthew Conlen",
-  "name": "sequelize-swagger",
+  "name": "swaggerize",
   "description": "Generates Swagger model definitions from a sequelize object",
   "version": "0.0.2",
-  "homepage": "https://github.com/mathisonian/sequelize-swagger",
+  "homepage": "https://github.com/mathisonian/swaggerize",
   "repository": {
-    "url": "git://github.com/mathisonian/sequelize-swagger.git",
+    "url": "git://github.com/mathisonian/swaggerize.git",
     "type": "git"
   },
   "main": "./index",
@@ -18,7 +18,7 @@
     "node": "*"
   },
   "bugs": {
-    "url": "https://github.com/mathisonian/sequelize-swagger/issues"
+    "url": "https://github.com/mathisonian/swaggerize/issues"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
