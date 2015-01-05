@@ -10,9 +10,16 @@
   },
   "main": "./index",
   "dependencies": {
-    "lodash": "~2.3.0"
+    "JSV": "^4.0.2",
+    "lodash": "~2.3.0",
+    "sequelize": "^2.0.0-rc6",
+    "swagger-schema-official": "^2.0.0-a33091a",
+    "yamljs": "^0.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "mysql": "^2.5.4"
+  },
   "optionalDependencies": {},
   "engines": {
     "node": "*"

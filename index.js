@@ -1,5 +1,5 @@
 'use strict';
 
-module.exports = function(sequelize, options) {
-    return require('./lib')(sequelize, options);
-};
+module.exports = function(options) {
+    return require('./lib/swaggerize.js')(options || {});
+}();
