@@ -10,23 +10,24 @@ module.exports = function(sequelize, DataTypes) {
         username: {
             type: DataTypes.STRING,
             swaggerize: {
-                param: swg.REQUIRED,
-                response: swg.REQUIRED
+                POST: swg.REQUIRED,
+                GET: swg.REQUIRED,
+                PUT: swg.REQUIRED
             }
         },
         password: {
             type: DataTypes.STRING,
             swaggerize: {
-                param: swg.HIDDEN,
-                response: swg.OPTIONAL
+                POST: swg.REQUIRED,
+                GET: swg.HIDDEN
             }
         },
         email: {
             type: DataTypes.STRING,
             unique: true,
             swaggerize: {
-                param: swg.REQUIRED,
-                response: swg.REQUIRED
+                POST: swg.REQUIRED,
+                GET: swg.REQUIRED
             }
         },
         id: {
@@ -35,7 +36,9 @@ module.exports = function(sequelize, DataTypes) {
             autoIncrement: true,
             primaryKey: true,
             swaggerize: {
-                response: swg.REQUIRED
+                GET: swg.REQUIRED,
+                PUT: swg.REQUIRED,
+                DELETE: swg.REQUIRED
             }
         },
         profile: {
@@ -45,8 +48,10 @@ module.exports = function(sequelize, DataTypes) {
         salt: {
             type: DataTypes.STRING,
             swaggerize: {
-                param: swg.HIDDEN,
-                response: swg.HIDDEN
+                POST: swg.HIDDEN,
+                GET: swg.HIDDEN,
+                PUT: swg.HIDDEN,
+                DELETE: swg.HIDDEN
             }
         },
   }, {
