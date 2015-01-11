@@ -7,31 +7,44 @@ usage
 ---
 
 ```js
-var sequelize = require('sequelize');
-var swaggerize = require('swaggerize');
+var Sequelize = require('sequelize'),
+    Swaggerize = require('./index.js'),
+    db = new Sequelize();
+// With credentials, this would be
+// var db = new Sequelize(config.database, config.username, config.password, config.options);
 
-var sequelize = new Sequelize(config.database, config.username, config.password, config.options);
 
-// load your models here
-//
-// e.g. sequelize.import(UserModelFile)
-//
+// Load your models here, or use the simple model below.
+db.define("Task", {
+    title: {
+        type: Sequelize.STRING,
+    }
+});
 
-sequelize.sync();
-
-var swagger_model_json = swaggerize(sequelize);
+var spec = Swaggerize.generate(db,{});
+console.log(spec);
 ```
 
+This will return a swagger-compliant REST api of your sequalize models, with support for CRUD operations over collections and items.
+You can copy this into http://editor.swagger.io/#/edit to see the API in a more visual fashion.
 
-this will return a swagger-compliant json representation of your sequalize models. (it will look like [their example](https://github.com/wordnik/swagger-node-express/blob/master/Apps/petstore/models.js)).
+The REST API generator:
 
-Then, if you are using something like [swagger-node-express](https://github.com/wordnik/swagger-node-express),
+Supposing your model is called ‘User’, with a primary key ID. Sequelize generates a table called ‘Users’.
+Swaggerize will then generate the following API:
 
-```js
-swagger.addModels(swagger_model_json);
-```
+/Users
+    POST: Create
+    GET: Read
+    PUT: Update
+    DELETE: Delete
 
-and that's it.
+/User/{id}
+    POST: Create
+    GET: Read
+    PUT: Update
+    DELETE: Delete
+
 
 installation
 --
@@ -39,6 +52,50 @@ installation
 Install with [npm](https://npmjs.org/package/sequelize-swagger)
 
 `npm install swaggerize`
+
+options
+--
+
+Swaggerize provides for some configurability. Options described in self-documenting json.
+`
+{
+    // generate spec in yaml instead of json.
+    gen_yaml: false,
+    // swagger boiler-plate configuration
+    swagger: {
+        info: {
+            'title': 'My applications awesome REST api',
+            'version': '1.0.0',
+            'description': 'the next REST api to rock the world',
+            'termsOfService': '',
+            'contact': {
+                'name': '',
+                'url': 'https://www.example.com',
+                'email': 'contact@example.com'
+            },
+            'license': {
+                'name': 'ISC',
+                'url': 'https://www.example.com/license'
+            }
+        },
+        version: '1.0.0',
+        host: 'api.example.com',
+        basePath: '/v1',
+        schemes: [ 'http', 'https', 'ws', 'wss'],
+        consumes: [
+            'application/json'
+        ],
+        produces: [
+            'application/json'
+        ]
+    }
+}
+`
+
+TODO
+--
+1. Support for security over the API is not available at this point.
+2. Need to add support for custom paths.
 
 notes
 --
