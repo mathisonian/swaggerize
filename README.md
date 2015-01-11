@@ -30,6 +30,7 @@ console.log(spec);
 
 This will return a swagger-compliant REST api of your sequalize models, with support for CRUD operations over collections and items.
 You can copy this into http://editor.swagger.io/#/edit to see the API in a more visual fashion.
+Samples are generated and stored in samples/fixtures.yaml and samples/fixtures.json if you would like to try it out.
 
 The REST API generator:
 

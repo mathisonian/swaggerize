@@ -1,0 +1,1469 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "My awesome REST API",
+    "version": "1.0.0",
+    "description": "We will rocking the RESTful world",
+    "termsOfService": "",
+    "contact": {
+      "name": "Contact",
+      "url": "http://www.example.com",
+      "email": "contact@example.com"
+    },
+    "license": {
+      "name": "ISC",
+      "url": "http://www.example.com/license"
+    }
+  },
+  "host": "api.example.com",
+  "basePath": "/v1",
+  "schemes": [
+    "http",
+    "https",
+    "ws",
+    "wss"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/Users": {
+      "get": {
+        "tags": [
+          "User",
+          "Users"
+        ],
+        "summary": "Read a list of Users",
+        "operationId": "UserListRead",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "User",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User_get"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid User ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "User not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User",
+          "Users"
+        ],
+        "summary": "Create a list of Users",
+        "operationId": "UserListCreate",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "User_List_post",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User_post"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "User"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid User ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "User not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User",
+          "Users"
+        ],
+        "summary": "Update a list of Users",
+        "operationId": "UserListUpdate",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "User_List_put",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User_put"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "User"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid User ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "User not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User",
+          "Users"
+        ],
+        "summary": "Delete a list of Users",
+        "operationId": "UserListDelete",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "User_List_delete",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/User_delete"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "User"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid User ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "User not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/User/{id}": {
+      "get": {
+        "tags": [
+          "User",
+          "Users"
+        ],
+        "summary": "Read a User",
+        "operationId": "UserRead",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "User",
+              "$ref": "#/definitions/User_get"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid User ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "User not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User",
+          "Users"
+        ],
+        "summary": "Create a User",
+        "operationId": "UserCreate",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "User_post",
+            "schema": {
+              "$ref": "#/definitions/User_post"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "User"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid User ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "User not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User",
+          "Users"
+        ],
+        "summary": "Update a User",
+        "operationId": "UserUpdate",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "User_put",
+            "schema": {
+              "$ref": "#/definitions/User_put"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "User"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid User ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "User not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User",
+          "Users"
+        ],
+        "summary": "Delete a User",
+        "operationId": "UserDelete",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "User_delete",
+            "schema": {
+              "$ref": "#/definitions/User_delete"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "User"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid User ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access User"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "User not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "User not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for User"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Tasks": {
+      "get": {
+        "tags": [
+          "Task",
+          "Tasks"
+        ],
+        "summary": "Read a list of Tasks",
+        "operationId": "TaskListRead",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "Task",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Task_get"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid Task ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access Task"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Task not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for Task"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Task",
+          "Tasks"
+        ],
+        "summary": "Create a list of Tasks",
+        "operationId": "TaskListCreate",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "Task_List_post",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Task_post"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "Task"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid Task ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access Task"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Task not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for Task"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Task",
+          "Tasks"
+        ],
+        "summary": "Update a list of Tasks",
+        "operationId": "TaskListUpdate",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "Task_List_put",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Task_put"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "Task"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid Task ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access Task"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Task not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for Task"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Task",
+          "Tasks"
+        ],
+        "summary": "Delete a list of Tasks",
+        "operationId": "TaskListDelete",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "Task_List_delete",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Task_delete"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "Task"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid Task ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access Task"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Task not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for Task"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Task/{id}": {
+      "get": {
+        "tags": [
+          "Task",
+          "Tasks"
+        ],
+        "summary": "Read a Task",
+        "operationId": "TaskRead",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "Task",
+              "$ref": "#/definitions/Task_get"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid Task ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access Task"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Task not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for Task"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Task",
+          "Tasks"
+        ],
+        "summary": "Create a Task",
+        "operationId": "TaskCreate",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "Task_post",
+            "schema": {
+              "$ref": "#/definitions/Task_post"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "Task"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid Task ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access Task"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Task not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for Task"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Task",
+          "Tasks"
+        ],
+        "summary": "Update a Task",
+        "operationId": "TaskUpdate",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "Task_put",
+            "schema": {
+              "$ref": "#/definitions/Task_put"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "Task"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid Task ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access Task"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Task not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for Task"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Task",
+          "Tasks"
+        ],
+        "summary": "Delete a Task",
+        "operationId": "TaskDelete",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "required": true,
+            "name": "Task_delete",
+            "schema": {
+              "$ref": "#/definitions/Task_delete"
+            }
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "headers": {},
+            "schema": {
+              "title": "Task"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Invalid Task ID supplied"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access.",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Unauthorized attempt to access Task"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Task not found",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Task not found"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Validation exception",
+            "schema": {
+              "properties": {
+                "error": {
+                  "type": "string",
+                  "default": "Error validating request for Task"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "User_post": {
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "email": {
+          "format": "string"
+        },
+        "id": {
+          "format": "integer"
+        },
+        "password": {
+          "format": "string"
+        },
+        "profile": {
+          "format": "string"
+        },
+        "salt": {
+          "format": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "username": {
+          "format": "string"
+        }
+      }
+    },
+    "User_get": {
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "email": {
+          "format": "string"
+        },
+        "id": {
+          "format": "integer"
+        },
+        "password": {
+          "format": "string"
+        },
+        "profile": {
+          "format": "string"
+        },
+        "salt": {
+          "format": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "username": {
+          "format": "string"
+        }
+      }
+    },
+    "User_put": {
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "email": {
+          "format": "string"
+        },
+        "id": {
+          "format": "integer"
+        },
+        "password": {
+          "format": "string"
+        },
+        "profile": {
+          "format": "string"
+        },
+        "salt": {
+          "format": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "username": {
+          "format": "string"
+        }
+      }
+    },
+    "User_delete": {
+      "properties": {
+        "createdAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "email": {
+          "format": "string"
+        },
+        "id": {
+          "format": "integer"
+        },
+        "password": {
+          "format": "string"
+        },
+        "profile": {
+          "format": "string"
+        },
+        "salt": {
+          "format": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "username": {
+          "format": "string"
+        }
+      }
+    },
+    "Task_post": {
+      "properties": {
+        "UserId": {
+          "format": "integer"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "id": {
+          "format": "integer"
+        },
+        "title": {
+          "format": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "Task_get": {
+      "properties": {
+        "UserId": {
+          "format": "integer"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "id": {
+          "format": "integer"
+        },
+        "title": {
+          "format": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "Task_put": {
+      "properties": {
+        "UserId": {
+          "format": "integer"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "id": {
+          "format": "integer"
+        },
+        "title": {
+          "format": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "Task_delete": {
+      "properties": {
+        "UserId": {
+          "format": "integer"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "id": {
+          "format": "integer"
+        },
+        "title": {
+          "format": "string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "API"
+    }
+  ]
+}
