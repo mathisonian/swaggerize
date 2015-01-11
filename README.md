@@ -11,8 +11,11 @@ var Sequelize = require('sequelize'),
     Swaggerize = require('./index.js'),
     db = new Sequelize();
 // With credentials, this would be
-// var db = new Sequelize(config.database, config.username, config.password, config.options);
-
+// var db = new Sequelize(
+//           config.database,
+//           config.username,
+//           config.password,
+//           config.options);
 
 // Load your models here, or use the simple model below.
 db.define("Task", {
@@ -33,6 +36,7 @@ The REST API generator:
 Supposing your model is called ‘User’, with a primary key ID. Sequelize generates a table called ‘Users’.
 Swaggerize will then generate the following API:
 
+`
 /Users
     POST: Create
     GET: Read
@@ -44,7 +48,7 @@ Swaggerize will then generate the following API:
     GET: Read
     PUT: Update
     DELETE: Delete
-
+`
 
 installation
 --
