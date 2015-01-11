@@ -1,9 +1,9 @@
-swaggerize
+Swaggerize
 ===========
 
-Generates Swagger model definitions from a sequelize object
+Generates Swagger REST api from a sequelize object
 
-usage
+Usage
 ---
 
 ```js
@@ -36,7 +36,7 @@ The REST API generator:
 Supposing your model is called ‘User’, with a primary key ID. Sequelize generates a table called ‘Users’.
 Swaggerize will then generate the following API:
 
-`
+```
 /Users
     POST: Create
     GET: Read
@@ -48,20 +48,52 @@ Swaggerize will then generate the following API:
     GET: Read
     PUT: Update
     DELETE: Delete
-`
+```
 
-installation
+Access Control
+--
+
+Sometimes, it is important to provide assymetric control over specific fields in a model.
+For example, passwords should not be retrievable over the REST api.
+
+Swaggerize provides for fine-grained control over each model field.
+By default, each field is ‘VISIBLE’ across all REST interfaces for the model.
+You can control this to be ‘REQUIRED’ or ‘HIDDEN’ in the Sequelize model definition.
+
+Example below demonstrates such control over a User table with username/password:
+
+```js
+ User = sequelize.define('User', {
+        username: {
+            type: DataTypes.STRING,
+            swaggerize: {
+                POST: swg.REQUIRED,
+                GET: swg.REQUIRED,
+                PUT: swg.REQUIRED
+            }
+        },
+        password: {
+            type: DataTypes.STRING,
+            swaggerize: {
+                POST: swg.REQUIRED,
+                GET: swg.HIDDEN
+            }
+        });
+```
+
+
+Installation
 --
 
 Install with [npm](https://npmjs.org/package/sequelize-swagger)
 
 `npm install swaggerize`
 
-options
+Options
 --
 
 Swaggerize provides for some configurability. Options described in self-documenting json.
-`
+```js
 {
     // generate spec in yaml instead of json.
     gen_yaml: false,
@@ -94,14 +126,14 @@ Swaggerize provides for some configurability. Options described in self-document
         ]
     }
 }
-`
+```
 
 TODO
 --
 1. Support for security over the API is not available at this point.
 2. Need to add support for custom paths.
 
-notes
+Notes
 --
 
 this is a new project, I would recommend using it to bootstrap your swagger files, but don't rely on it for complete automation right now.
