@@ -32,7 +32,8 @@ This will return a swagger-compliant REST api of your sequalize models, with sup
 You can copy this into http://editor.swagger.io/#/edit to see the API in a more visual fashion.
 Samples are generated and stored in samples/fixtures.yaml and samples/fixtures.json if you would like to try it out.
 
-The REST API generator:
+The REST API generator
+---
 
 Supposing your model is called ‘User’, with a primary key ID. Sequelize generates a table called ‘Users’.
 Swaggerize will then generate the following API:
